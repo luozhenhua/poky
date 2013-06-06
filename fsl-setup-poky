@@ -282,7 +282,7 @@ if [[ "${BOARD}" =~ "imx" ]]; then
     fi
 else
     # append ppc layer if it exists
-    for layer in meta-fsl-ppc meta-fsl-ppc-toolchain meta-virtualization;do
+    for layer in meta-fsl-ppc meta-virtualization;do
         if [ -e ${POKY_DIR}/${layer} ]; then
             awk '/  \"/ && !x {print "'"  ${POKY_DIR}/${layer}"' \\"; x=1} 1' conf/bblayers.conf > conf/bblayers.conf~
             mv conf/bblayers.conf~ conf/bblayers.conf
